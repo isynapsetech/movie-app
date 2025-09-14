@@ -1,3 +1,4 @@
+import { SignedOut, SignedIn, UserButton, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 export default function Header() {
   return (
@@ -13,8 +14,15 @@ export default function Header() {
     
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
-        <Link href="/contact"> <button className="bg-amber-400 px-4 py-2 rounded-4xl">Get Started</button></Link>
-      
+        <Link href="/contact"> </Link>
+        <SignedOut>
+            <SignInButton mode="modal">
+                <button className="bg-amber-400 px-4 py-2 rounded-4xl">Get Started</button>
+            </SignInButton>
+        </SignedOut>
+        <SignedIn>
+            <UserButton />
+        </SignedIn>
       </div>
       
     </div>
